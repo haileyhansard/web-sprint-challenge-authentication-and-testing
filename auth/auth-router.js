@@ -1,5 +1,6 @@
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const db = require('../database/dbConfig');
 
 const router = require('express').Router();
 
