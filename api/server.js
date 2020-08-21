@@ -15,7 +15,7 @@ server.use(express.json());
 server.use('/api/auth', authRouter);
 server.use('/api/jokes', authenticate, jokesRouter);
 
-server.get("/", (req, res) => {
+server.get("/hello", (req, res) => {
     res.json({ message: "API is up and running for Week3 Sprint" });
   });
 
