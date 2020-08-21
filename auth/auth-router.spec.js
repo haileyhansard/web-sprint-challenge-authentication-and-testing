@@ -21,7 +21,7 @@ describe('auth-router', () => {
             .post('/api/auth/register')
             .send({ username: 'hailey', password: 'pass123' })
             .then(res => {
-                expect(res.status).toBe(201)
+                expect(res.status).toEqual(201)
             })
         })
         it('should respond with new user', () => {
@@ -29,7 +29,7 @@ describe('auth-router', () => {
             .post('/api/auth/register')
             .send({ username: 'hailey', password: 'pass123' })
             .then(res => {
-                expect(res.body.data.username).toBe('hailey')
+                expect(res.body.data.username).toContain('hailey')
             })
         })
     })
