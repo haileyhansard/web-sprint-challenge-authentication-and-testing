@@ -26,11 +26,23 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Differences between using _sessions_ or _JSON Web Tokens_ for authentication.
 
+- They are both used to add authentication to a Web API. 
+- In session based authentication, the server creates a session for the user after the user logs in (thus after being authenticated). The session id is stored on a cookie on the user’s browser, which will be sent to the server upon every request while the user is logged in, and the server will verify the cookie every time it sends a response back to that user. However, in JSON Web Tokens authentication, the server creates the JWT with a secret, and sends the token to the client, which stores the token and sends the token back in the header with every request it makes to the server.
+- The user’s state is stored on the server in a session, whereas the user’s state is stored in the token on the client side with a JWT.
+
 2. What does `bcrypt` do to help us store passwords in a secure manner.
+
+- Bcryptjs hashes passwords and stores them in a secure way. Hashing is only 1-way, it cannot be reversed, so the stored password will be very hard to hack or read for an attacker, it will not be able to be decrypted back to its original value (the way that encrypted passwords can be). Bcrypt takes the password that’s typed in, and its library adds a random string of characters (salt) to the password and hashes it multiple times (rounds). It stores the hashed password, and then we can verify that the typed in password by the user matches the stored hashed password, and the typed in password will never be stored or readable.
 
 3. How are unit tests different from integration and end-to-end testing.
 
+- Unit tests only test one small piece of software in isolation, usually a function or a method. They are fast and simple to write and execute. Unit tests will test the application logic.
+- However, integration tests test different parts of the system and make sure they work together. For example, integration testing tests the route handlers and middleware - they test the endpoints.
+- End-to-end testing is used to run queries against a database similar to the one used in production, they are going to test the whole application and make sure everything is working. They are much slower, thus more expensive. 
+
 4. How _Test Driven Development_ changes the way we write applications and tests.
+
+- You start with the end (the tests) in mind. That way, you write much higher quality code. You will write code that you are more confident with, because you will think about all possible ways the code could fail potential tests, and you will want to avoid vulnerabilities that could fail and cause bugs.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
